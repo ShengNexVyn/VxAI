@@ -1,0 +1,25 @@
+workflows:
+  android-build:
+    name: VxAI Android Build
+    max_build_duration: 30
+    environment:
+      android_signing:
+        - vxai_keystore
+      groups:
+        - default
+      vars:
+        PACKAGE_NAME: "com.vxai.chat"
+    scripts:
+      - name: Set up local.properties
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+      - name: Build debug APK
+        script: |
+          chmod +x ./gradlew
+          ./gradlew assembleDebug
+    artifacts:
+      - app/build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - you@example.com
