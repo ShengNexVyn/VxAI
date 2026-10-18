@@ -5,6 +5,7 @@ import com.vxai.chat.data.api.NineRouterApi
 import com.vxai.chat.data.model.ChatMessage
 import com.vxai.chat.data.model.ChatRequest
 import com.vxai.chat.data.model.ModelInfo
+import com.vxai.chat.data.model.displayText
 import com.vxai.chat.util.Prefs
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -51,7 +52,7 @@ class ChatRepository(private val prefs: Prefs) {
         buildApi().models().data
 
     suspend fun send(messages: List<ChatMessage>, model: String): String {
-        val resp = buildApi().chat(com.vxai.chat.data.model.ChatRequest(model = model, messages = messages))
+        val resp = buildApi().chat(ChatRequest(model = model, messages = messages))
         return resp.choices.firstOrNull()?.message?.displayText()
             ?: " (no response) "
     }
@@ -65,7 +66,7 @@ class ChatRepository(private val prefs: Prefs) {
                 chain.proceed(req)
             }
             .build()
-        val json = Gson().toJson(com.vxai.chat.data.model.ChatRequest(model = model, messages = messages, stream = true))
+        val json = Gson().toJson(ChatRequest(model = model, messages = messages, stream = true))
         val body = json.toRequestBody("application/json".toMediaType())
         val request = Request.Builder()
             .url("${ensureSlash(prefs.baseUrl)}chat/completions")

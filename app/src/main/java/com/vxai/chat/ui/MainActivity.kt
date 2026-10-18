@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         Prefs(this).applyTheme()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(binding.getRoot())
 
         binding.recycler.adapter = adapter
         binding.recycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this).apply {

@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.vxai.chat.data.model.ChatMessage
 import com.vxai.chat.data.model.ModelInfo
+import com.vxai.chat.data.model.displayText
 import com.vxai.chat.data.repository.ChatRepository
 import com.vxai.chat.util.Prefs
 import kotlinx.coroutines.flow.MutableStateFlow

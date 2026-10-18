@@ -2,6 +2,7 @@ package com.vxai.chat.ui
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.vxai.chat.R

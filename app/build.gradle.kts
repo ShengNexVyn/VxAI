@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ninerouter.chat"
+    namespace = "com.vxai.chat"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.ninerouter.chat"
+        applicationId = "com.vxai.chat"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
