@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnAttach.setOnClickListener {
-            pickImage.launch(ActivityResultContracts.PickVisualMedia.ImageOnly)
+            pickImage.launch(androidx.activity.result.PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
         }
 
         binding.btnCamera.setOnClickListener {
